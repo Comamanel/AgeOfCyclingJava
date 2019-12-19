@@ -1,4 +1,4 @@
-package models;
+package com.models;
 
 public class Age {
     private int years;
@@ -33,5 +33,10 @@ public class Age {
 
     public void setDays(int days) {
         this.days = days;
+    }
+
+    @Override
+    public String toString() {
+        return getYears() + " ans, " + getMonth() + " mois et " + getDays();
     }
 }
