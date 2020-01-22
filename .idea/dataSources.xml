@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="AgeOfCyclingDB2Database" uuid="de5546d8-0f88-4ee0-8970-ca45ad5e2ea2">
+      <driver-ref>db2</driver-ref>
+      <jdbc-driver>com.ibm.db2.jcc.DB2Driver</jdbc-driver>
+      <jdbc-url>jdbc:db2:AOCycle</jdbc-url>
+    </data-source>
+  </component>
+</project>
