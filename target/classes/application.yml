@@ -1,0 +1,15 @@
+spring:
+  profiles: dev
+  datasource:
+    username: db2admin
+    password: Test1234=
+    url: jdbc:db2://localhost:50000/AOCycle
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.DB2Dialect
+

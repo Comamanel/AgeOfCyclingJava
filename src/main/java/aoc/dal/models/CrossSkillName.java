@@ -1,6 +1,6 @@
-package aoc.business.models;
+package aoc.dal.models;
 
-public enum CrossSkillName implements SkillName {
+public enum CrossSkillName {
     BALANCE,
     CLIMB,
     CLIMBRUN,

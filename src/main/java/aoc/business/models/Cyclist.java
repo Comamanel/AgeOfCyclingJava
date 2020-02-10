@@ -1,12 +1,11 @@
 package aoc.business.models;
 
-import lombok.Data;
 
 import java.util.Set;
 
-@Data
 public class Cyclist {
     //region attributes
+    private Long Id;
     private String firstName;
     private String lastName;
     private Age age;
