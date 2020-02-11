@@ -1,6 +1,6 @@
 package aoc.dal.models;
 
-public enum RoadSkillName {
+public enum RoadSkillNameDAO {
     HILLS,
     FLAT,
     MOUNTAIN,

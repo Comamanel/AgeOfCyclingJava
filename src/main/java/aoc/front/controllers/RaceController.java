@@ -1,7 +1,7 @@
 package aoc.front.controllers;
 
-import aoc.business.services.CyclistService;
-import aoc.front.dto.CyclistList;
+import aoc.business.services.RaceService;
+import aoc.front.dto.RaceList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,20 +12,21 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(value={"/api/cyclist"})
-public class CyclistController {
-    private CyclistService cyclistService;
+@RequestMapping(value="/api/race")
+public class RaceController {
+    private RaceService raceService;
 
     @Autowired
-    public CyclistController(CyclistService cyclistService){
-        this.cyclistService = cyclistService;
+    public RaceController(RaceService raceService) {
+        this.raceService = raceService;
     }
 
     @GetMapping(value={"/", "/list"})
-    public ResponseEntity<List<CyclistList>> getAll(){
-        return ResponseEntity.ok(cyclistService.findAll()
+    public ResponseEntity<List<RaceList>> getAll(){
+        return ResponseEntity.ok(
+            this.raceService.findAll()
                 .stream()
-                .map(CyclistList::from)
+                .map(RaceList::from)
                 .collect(Collectors.toList()));
     }
 }

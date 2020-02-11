@@ -1,46 +1,30 @@
 package aoc.business.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
+import aoc.dal.models.AgeDAO;
+import lombok.*;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@ToString(of={ "years", "month", "days" })
 public class Age {
     private int years;
     private int month;
     private int days;
 
     public Age() {
-        years = 0;
+        years = 15;
         month = 0;
         days = 0;
     }
 
-    public int getYears() {
-        return years;
-    }
-
-    public void setYears(int years) {
-        this.years = years;
-    }
-
-    public int getMonth() {
-        return month;
-    }
-
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
-    public int getDays() {
-        return days;
-    }
-
-    public void setDays(int days) {
-        this.days = days;
-    }
-
-    @Override
-    public String toString() {
-        return getYears() + " ans, " + getMonth() + " mois et " + getDays();
+    public static Age from(AgeDAO ageDAO){
+        Age age = new Age();
+        age.setDays(ageDAO.getDays());
+        age.setMonth(ageDAO.getMonth());
+        age.setYears(ageDAO.getYears());
+        return age;
     }
 }

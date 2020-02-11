@@ -1,6 +1,6 @@
 package aoc.business.models;
 
-public enum RoadSkillName implements SkillName {
+public enum RoadSkillName {
     HILLS,
     FLAT,
     MOUNTAIN,

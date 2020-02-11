@@ -1,15 +1,12 @@
 package aoc.front.dto;
 
 import aoc.business.models.Cyclist;
-import aoc.dal.models.Age;
-import aoc.dal.models.Skillset;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Embedded;
-import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -25,7 +22,7 @@ public class CyclistList {
 
     private CyclistListAge age;
 
-    private List<Skillset> skillsetList;
+    private List<CyclistListSkillSet> skillSetList;
 
     public static CyclistList from(Cyclist cyclist){
         CyclistList cyclistList = new CyclistList();
@@ -35,7 +32,14 @@ public class CyclistList {
         cyclistList.setWeight(cyclist.getWeight());
         cyclistList.setHeight(cyclist.getHeight());
         cyclistList.setAge(CyclistListAge.from(cyclist.getAge()));
+        cyclistList.skillSetList = new ArrayList<>();
 
-        //TODO: faire le set SkillSetList, même si c'chiant
+
+        if(cyclist.getSkillSetList() != null){
+            cyclist.getSkillSetList().stream()
+                    .forEach(s -> cyclistList.getSkillSetList().add(CyclistListSkillSet.from(s)));
+        }
+
+        return cyclistList;
     }
 }

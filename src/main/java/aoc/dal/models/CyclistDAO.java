@@ -6,7 +6,6 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -14,7 +13,8 @@ import java.util.Set;
 @NoArgsConstructor
 @ToString(of = { "firstName", "lastName", "country", "weight", "height", "age" })
 @EqualsAndHashCode(of = { "id", "firstName", "lastName", "country", "weight", "height", "age" })
-public class Cyclist implements Serializable {
+@Table(name = "cyclist")
+public class CyclistDAO implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="cyclist_id")
@@ -28,8 +28,8 @@ public class Cyclist implements Serializable {
 
 
     @Embedded
-    private Age age;
+    private AgeDAO age;
 
-    @OneToMany(targetEntity = Skillset.class, mappedBy = "cyclist")
-    private List<Skillset> skillsetList;
+    @OneToMany(targetEntity = SkillSetDAO.class, mappedBy = "cyclist")
+    private List<SkillSetDAO> skillSetList;
 }

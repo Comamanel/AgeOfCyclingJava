@@ -3,6 +3,7 @@ package aoc.dal.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -12,7 +13,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @ToString
 @Table(name="aoc_user")
-public class User {
+public class UserDAO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -22,6 +23,7 @@ public class User {
     private String password;
     private String email;
 
-    @ManyToMany(targetEntity = Role.class)
-    private Set<Role> roleSet;
+    @JoinColumn(name="role_id")
+    @ManyToOne(targetEntity = RoleDAO.class)
+    private RoleDAO role;
 }

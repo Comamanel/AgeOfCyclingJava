@@ -1,6 +1,9 @@
 package aoc.dal.models;
 
-public enum CrossSkillName {
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+
+public enum CrossSkillNameDAO {
     BALANCE,
     CLIMB,
     CLIMBRUN,

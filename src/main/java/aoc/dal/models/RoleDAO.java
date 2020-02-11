@@ -3,6 +3,8 @@ package aoc.dal.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -10,7 +12,8 @@ import javax.persistence.*;
 @ToString
 @EqualsAndHashCode
 @NoArgsConstructor
-public class Role {
+@Table(name = "role_users")
+public class RoleDAO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="role_id")
@@ -19,4 +22,6 @@ public class Role {
     @Column(nullable = false)
     private String label;
 
+    @OneToMany(targetEntity = UserDAO.class, mappedBy = "role")
+    private List<UserDAO> users;
 }
