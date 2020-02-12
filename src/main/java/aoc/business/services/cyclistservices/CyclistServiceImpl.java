@@ -1,4 +1,4 @@
-package aoc.business.services;
+package aoc.business.services.cyclistservices;
 
 import aoc.business.models.Cyclist;
 import aoc.dal.repositories.CyclistRepository;

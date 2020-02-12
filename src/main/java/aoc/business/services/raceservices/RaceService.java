@@ -1,4 +1,4 @@
-package aoc.business.services;
+package aoc.business.services.raceservices;
 
 import aoc.business.models.Race;
 import org.springframework.stereotype.Service;

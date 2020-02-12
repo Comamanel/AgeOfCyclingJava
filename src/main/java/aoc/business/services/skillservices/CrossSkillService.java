@@ -1,4 +1,4 @@
-package aoc.business.services;
+package aoc.business.services.skillservices;
 
 import aoc.business.models.CrossSkill;
 import org.springframework.stereotype.Service;

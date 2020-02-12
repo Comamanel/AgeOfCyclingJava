@@ -7,11 +7,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 public class RaceList {
     private String name;
@@ -19,6 +19,10 @@ public class RaceList {
     private Integer nbLaps;
 
     private List<RaceListSection> sections;
+
+    public RaceList() {
+        this.sections = new ArrayList<>();
+    }
 
     public static RaceList from(Race race){
         RaceList rl = new RaceList();

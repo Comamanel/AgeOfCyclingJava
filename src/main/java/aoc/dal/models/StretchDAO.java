@@ -25,6 +25,7 @@ public class StretchDAO {
     @JoinColumn(name="surface_id")
     @ManyToOne(targetEntity = SurfaceDAO.class)
     private SurfaceDAO surface;
+
     @Min(1)
     @Max(3)
     private int difficulty;
@@ -33,6 +34,10 @@ public class StretchDAO {
     @Max(50)
     @Column(precision = 1)
     private double slope;
+
+    @Min(0)
+    @Column(precision = 2)
+    private double length;
 
     @JoinColumn(name="race_id")
     @ManyToOne(targetEntity = RaceDAO.class)

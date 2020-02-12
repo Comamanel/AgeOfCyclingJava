@@ -19,7 +19,7 @@ public class RoleDAO {
     @Column(name="role_id")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String label;
 
     @OneToMany(targetEntity = UserDAO.class, mappedBy = "role")

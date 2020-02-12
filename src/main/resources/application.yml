@@ -4,11 +4,11 @@ spring:
     username: db2admin
     password: Test1234=
     url: jdbc:db2://localhost:50000/AOCycle
-
+    initialization-mode: always
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.DB2Dialect

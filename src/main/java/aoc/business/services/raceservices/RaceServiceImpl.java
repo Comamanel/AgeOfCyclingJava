@@ -1,7 +1,6 @@
-package aoc.business.services;
+package aoc.business.services.raceservices;
 
 import aoc.business.models.Race;
-import aoc.dal.models.RaceDAO;
 import aoc.dal.repositories.RaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
