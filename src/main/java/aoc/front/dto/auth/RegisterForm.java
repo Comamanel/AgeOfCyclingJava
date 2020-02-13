@@ -1,4 +1,4 @@
-package aoc.front.dto;
+package aoc.front.dto.auth;
 
 import aoc.business.models.User;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import javax.persistence.Column;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserForm {
+public class RegisterForm {
     @Column(unique = true, nullable = false)
     private String username;
     @Column(nullable = false)
@@ -18,8 +18,8 @@ public class UserForm {
     @Column(nullable = false)
     private String email;
 
-    public static UserForm from(User user){
-        UserForm uf = new UserForm();
+    public static RegisterForm from(User user){
+        RegisterForm uf = new RegisterForm();
 
         uf.setEmail(user.getEmail());
         uf.setUsername(user.getUsername());
