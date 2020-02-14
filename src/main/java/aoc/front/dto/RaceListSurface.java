@@ -1,6 +1,6 @@
 package aoc.front.dto;
 
-import aoc.business.models.Surface;
+import aoc.bll.models.Surface;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

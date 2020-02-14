@@ -1,6 +1,6 @@
 package aoc.front.controllers;
 
-import aoc.business.services.skillservices.SkillService;
+import aoc.bll.services.skillservices.SkillService;
 import aoc.front.dto.SkillList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

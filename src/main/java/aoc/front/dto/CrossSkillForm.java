@@ -1,6 +1,6 @@
 package aoc.front.dto;
 
-import aoc.business.models.CrossSkill;
+import aoc.bll.models.CrossSkill;
 
 public class CrossSkillForm extends SkillList {
     public static CrossSkillForm from(CrossSkill skill) {

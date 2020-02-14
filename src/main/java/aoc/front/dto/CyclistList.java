@@ -1,6 +1,6 @@
 package aoc.front.dto;
 
-import aoc.business.models.Cyclist;
+import aoc.bll.models.Cyclist;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,6 +1,6 @@
 package aoc.front.dto.auth;
 
-import aoc.business.models.User;
+import aoc.bll.models.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,6 +1,6 @@
 package aoc.front.dto;
 
-import aoc.business.models.RoadSkill;
+import aoc.bll.models.RoadSkill;
 
 public class RoadSkillForm extends SkillList {
     public static RoadSkillForm from(RoadSkill skill){

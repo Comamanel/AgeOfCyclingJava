@@ -1,7 +1,7 @@
 package aoc.front.controllers;
 
-import aoc.business.models.CrossSkill;
-import aoc.business.services.skillservices.CrossSkillService;
+import aoc.bll.models.CrossSkill;
+import aoc.bll.services.skillservices.CrossSkillService;
 import aoc.front.dto.CrossSkillForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

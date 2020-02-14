@@ -1,10 +1,9 @@
 package aoc.front.dto;
 
 
-import aoc.business.models.Race;
+import aoc.bll.models.Race;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;

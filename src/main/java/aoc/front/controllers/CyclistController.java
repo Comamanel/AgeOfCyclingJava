@@ -1,6 +1,6 @@
 package aoc.front.controllers;
 
-import aoc.business.services.cyclistservices.CyclistService;
+import aoc.bll.services.cyclistservices.CyclistService;
 import aoc.front.dto.CyclistList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
 package aoc.dal.models;
 
-import aoc.business.models.Skill;
+import aoc.bll.models.Skill;
 import lombok.*;
 
 import javax.persistence.Entity;

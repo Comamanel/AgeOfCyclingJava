@@ -1,7 +1,7 @@
 package aoc.front.dto;
 
 
-import aoc.business.models.Stretch;
+import aoc.bll.models.Stretch;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

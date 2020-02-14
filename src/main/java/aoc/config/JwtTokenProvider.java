@@ -1,6 +1,6 @@
 package aoc.config;
 
-import aoc.business.services.securityservices.UserService;
+import aoc.bll.services.securityservices.UserService;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

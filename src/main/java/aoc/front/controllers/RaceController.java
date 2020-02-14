@@ -1,6 +1,6 @@
 package aoc.front.controllers;
 
-import aoc.business.services.raceservices.RaceService;
+import aoc.bll.services.raceservices.RaceService;
 import aoc.front.dto.RaceList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
