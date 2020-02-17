@@ -14,19 +14,19 @@ import java.util.Set;
 @ToString
 @EqualsAndHashCode
 @Table(name = "race_year_result")
-public class RaceResultDAO implements Serializable {
+public class RaceResult implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(targetEntity = RaceDAO.class)
-    private RaceDAO race;
+    @ManyToOne(targetEntity = Race.class)
+    private Race race;
 
     @JoinTable(name="race_result_cyclist",
             joinColumns = @JoinColumn(name ="race_result_id"),
             inverseJoinColumns = @JoinColumn(name="cyclist_id"))
-    @ManyToMany(targetEntity = CyclistDAO.class)
-    private Set<CyclistDAO> cyclists;
+    @ManyToMany(targetEntity = Cyclist.class)
+    private Set<Cyclist> cyclists;
 
     private int year;
 }

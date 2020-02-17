@@ -1,8 +1,7 @@
 package aoc.bll.models;
 
-import aoc.dal.models.CrossSkillDAO;
-import aoc.dal.models.RoadSkillDAO;
-import aoc.dal.models.SkillSetDAO;
+import aoc.dal.models.CrossSkill;
+import aoc.dal.models.RoadSkill;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,15 +16,15 @@ public class SkillSet {
     private Skill skill;
     private Integer value;
 
-    public static SkillSet from(SkillSetDAO skillSetDAO){
+    public static SkillSet from(aoc.dal.models.SkillSet skillSet){
         SkillSet ss = new SkillSet();
 //        ss.setCyclist(Cyclist.from(skillSetDAO.getCyclist()));
-        ss.setValue(skillSetDAO.getValue());
+        ss.setValue(skillSet.getValue());
 
-        if(skillSetDAO.getSkill() instanceof RoadSkillDAO)
-            ss.setSkill(RoadSkill.from((RoadSkillDAO)skillSetDAO.getSkill()));
+        if(skillSet.getSkill() instanceof RoadSkill)
+            ss.setSkill(aoc.bll.models.RoadSkill.from((RoadSkill) skillSet.getSkill()));
         else
-            ss.setSkill(CrossSkill.from((CrossSkillDAO)skillSetDAO.getSkill()));
+            ss.setSkill(aoc.bll.models.CrossSkill.from((CrossSkill) skillSet.getSkill()));
 
         return ss;
     }

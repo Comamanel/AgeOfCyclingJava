@@ -1,7 +1,6 @@
 package aoc.bll.services.skillservices;
 
-import aoc.bll.models.RoadSkill;
-import aoc.dal.models.RoadSkillDAO;
+import aoc.dal.models.RoadSkill;
 import aoc.dal.repositories.RoadSkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,32 +19,32 @@ public class RoadSkillServiceImpl implements RoadSkillService {
     }
 
     @Override
-    public Optional<RoadSkill> findById(Long id) {
+    public Optional<aoc.bll.models.RoadSkill> findById(Long id) {
         throw new NotImplementedException();
     }
 
     @Override
-    public Optional<RoadSkill> findByLabel(String label) {
+    public Optional<aoc.bll.models.RoadSkill> findByLabel(String label) {
         throw new NotImplementedException();
     }
 
     @Override
-    public List<RoadSkill> findAll() {
+    public List<aoc.bll.models.RoadSkill> findAll() {
         throw new NotImplementedException();
     }
 
     @Override
-    public RoadSkill save(RoadSkill skill) {
-        return RoadSkill.from(this.roadSkillRepository.save(RoadSkillDAO.from(skill)));
+    public aoc.bll.models.RoadSkill save(aoc.bll.models.RoadSkill skill) {
+        return aoc.bll.models.RoadSkill.from(this.roadSkillRepository.save(RoadSkill.from(skill)));
     }
 
     @Override
-    public RoadSkill update(Long id, RoadSkill skill) {
+    public aoc.bll.models.RoadSkill update(Long id, aoc.bll.models.RoadSkill skill) {
         throw new NotImplementedException();
     }
 
     @Override
-    public void remove(RoadSkill skill) {
+    public void remove(aoc.bll.models.RoadSkill skill) {
         throw new NotImplementedException();
     }
 

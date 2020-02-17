@@ -1,7 +1,6 @@
 package aoc.bll.services.securityservices;
 
-import aoc.bll.models.User;
-import aoc.dal.models.UserDAO;
+import aoc.dal.models.User;
 import aoc.dal.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,33 +22,33 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public Optional<?> login(User user) {
+    public Optional<?> login(aoc.bll.models.User user) {
         throw new NotImplementedException();
     }
 
     @Override
-    public List<User> getAll() {
+    public List<aoc.bll.models.User> getAll() {
         throw new NotImplementedException();
     }
 
     @Override
-    public Optional<User> getById(Long id) {
+    public Optional<aoc.bll.models.User> getById(Long id) {
         throw new NotImplementedException();
     }
 
     @Override
-    public Optional<User> getByUsername(String username) {
-        return this.userRepository.getByUsername(username).map(User::from);
+    public Optional<aoc.bll.models.User> getByUsername(String username) {
+        return this.userRepository.getByUsername(username).map(aoc.bll.models.User::from);
     }
 
 
     @Override
-    public boolean register(User user) {
-        return this.userRepository.save(UserDAO.from(user)).getUsername() != null;
+    public aoc.bll.models.User register(aoc.bll.models.User user) {
+        return aoc.bll.models.User.from(this.userRepository.save(User.from(user)));
     }
 
     @Override
-    public boolean delete(User user) {
+    public boolean delete(aoc.bll.models.User user) {
         throw new NotImplementedException();
     }
 
@@ -65,6 +64,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return User.from(userRepository.getByUsername(s).orElse(new UserDAO()));
+        return aoc.bll.models.User.from(userRepository.getByUsername(s).orElse(new User()));
     }
 }

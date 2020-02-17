@@ -6,9 +6,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
 
 @Entity
 @Getter
@@ -16,15 +16,15 @@ import javax.validation.constraints.Min;
 @EqualsAndHashCode(of = { "id", "surface", "difficulty", "race" })
 @ToString
 @Table(name = "stretch")
-public class StretchDAO {
+public class Stretch implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "stretch_id")
     private Long id;
 
     @JoinColumn(name="surface_id")
-    @ManyToOne(targetEntity = SurfaceDAO.class)
-    private SurfaceDAO surface;
+    @ManyToOne(targetEntity = Surface.class)
+    private Surface surface;
 
     @Min(1)
     @Max(3)
@@ -40,6 +40,6 @@ public class StretchDAO {
     private double length;
 
     @JoinColumn(name="race_id")
-    @ManyToOne(targetEntity = RaceDAO.class)
-    private RaceDAO race;
+    @ManyToOne(targetEntity = Race.class)
+    private Race race;
 }

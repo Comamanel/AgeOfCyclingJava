@@ -1,6 +1,8 @@
 package aoc.front.controllers;
 
+import aoc.bll.models.Role;
 import aoc.bll.models.User;
+import aoc.bll.services.securityservices.RoleService;
 import aoc.bll.services.securityservices.UserService;
 import aoc.config.JwtTokenProvider;
 import aoc.front.dto.auth.LoginForm;
@@ -13,18 +15,16 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/api/security")
 public class AuthController {
     private UserService userService;
+    private RoleService roleService;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -36,12 +36,13 @@ public class AuthController {
     private JwtTokenProvider jwtTokenProvider;
 
     @Autowired
-    public AuthController(UserService userService) {
+    public AuthController(UserService userService, RoleService roleService) {
         this.userService = userService;
+        this.roleService = roleService;
     }
 
     @PostMapping(value="/register")
-    public ResponseEntity<Boolean> register(@RequestBody RegisterForm registerForm){
+    public ResponseEntity<User> register(@RequestBody RegisterForm registerForm){
 
         //TODO: mettre le rôle à 0
         User u = new User();
@@ -49,6 +50,8 @@ public class AuthController {
         u.setPassword(passwordEncoder.encode(registerForm.getPassword()));
         u.setUsername(registerForm.getUsername());
 
+        Role role = this.roleService.findByLabel("ROLE_MEMBER");
+        u.setRole(role);
         return ResponseEntity.ok(this.userService.register(u));
     }
 

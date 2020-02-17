@@ -14,7 +14,7 @@ import java.util.Set;
 @EqualsAndHashCode(of = { "id", "name", "length", "nbLaps" })
 @NoArgsConstructor
 @Table(name = "race")
-public class RaceDAO implements Serializable {
+public class Race implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -22,10 +22,10 @@ public class RaceDAO implements Serializable {
     private Float length;
     private Integer nbLaps;
 
-    @OneToMany(targetEntity = StretchDAO.class, mappedBy = "race")
-    private List<StretchDAO> sections;
+    @OneToMany(targetEntity = Stretch.class, mappedBy = "race")
+    private List<Stretch> sections;
 
-    @OneToMany(targetEntity = RaceResultDAO.class, mappedBy = "race")
+    @OneToMany(targetEntity = RaceResult.class, mappedBy = "race")
     @Column(name="result_race")
-    private Set<RaceResultDAO> result;
+    private Set<RaceResult> result;
 }

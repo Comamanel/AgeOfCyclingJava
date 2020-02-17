@@ -1,6 +1,5 @@
 package aoc.bll.models;
 
-import aoc.dal.models.RoleDAO;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,12 +16,12 @@ public class Role implements GrantedAuthority {
         return label;
     }
 
-    public static Role from(RoleDAO roleDAO) {
+    public static Role from(aoc.dal.models.Role r) {
         Role role = new Role();
 
-        if (roleDAO != null) {
-            role.setId(roleDAO.getId());
-            role.setLabel(roleDAO.getLabel());
+        if (r != null) {
+            role.setId(r.getId());
+            role.setLabel(r.getLabel());
         }
 
         return role;

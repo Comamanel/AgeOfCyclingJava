@@ -3,8 +3,8 @@ package aoc.dal.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -13,7 +13,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @NoArgsConstructor
 @Table(name = "role_users")
-public class RoleDAO {
+public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="role_id")
@@ -22,6 +22,14 @@ public class RoleDAO {
     @Column(nullable = false, unique = true)
     private String label;
 
-    @OneToMany(targetEntity = UserDAO.class, mappedBy = "role")
-    private List<UserDAO> users;
+    @OneToMany(targetEntity = User.class, mappedBy = "role")
+    private List<User> users;
+
+    public static Role from(aoc.bll.models.Role role){
+        Role rdao = new Role();
+        rdao.setId(role.getId());
+        rdao.setLabel(role.getLabel());
+
+        return rdao;
+    }
 }

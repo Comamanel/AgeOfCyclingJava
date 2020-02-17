@@ -1,6 +1,5 @@
 package aoc.bll.models;
 
-import aoc.dal.models.SkillDAO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +12,7 @@ public abstract class Skill {
     private String label;
 
 
-    protected static Skill from(SkillDAO skillDAO, Skill skill){
+    protected static Skill from(aoc.dal.models.Skill skillDAO, Skill skill){
         skill.setId(skillDAO.getId());
         skill.setLabel(skillDAO.getLabel());
         return skill;

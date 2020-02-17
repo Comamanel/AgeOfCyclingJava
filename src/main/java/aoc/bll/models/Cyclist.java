@@ -1,7 +1,6 @@
 package aoc.bll.models;
 
 
-import aoc.dal.models.CyclistDAO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,28 +20,30 @@ public class Cyclist {
     private String country;
     private Double weight;
     private Double height;
+    private User user;
 
-    public Cyclist(){
+    public Cyclist() {
         skillSetList = new ArrayList<>();
     }
 
     private List<SkillSet> skillSetList;
     //endregion
 
-    public static Cyclist from(CyclistDAO cyclistDAO){
+    public static Cyclist from(aoc.dal.models.Cyclist cyclist) {
         Cyclist c = new Cyclist();
 
-        c.setFirstName(cyclistDAO.getFirstName());
-        c.setLastName(cyclistDAO.getLastName());
-        c.setCountry(cyclistDAO.getCountry());
-        c.setWeight(cyclistDAO.getWeight());
-        c.setHeight(cyclistDAO.getHeight());
-        c.setAge(Age.from(cyclistDAO.getAge()));
-
-        if(cyclistDAO.getSkillSetList() != null){
-            cyclistDAO.getSkillSetList().stream()
-                    .forEach(s -> c.getSkillSetList().add(SkillSet.from(s)));
+        c.setId(cyclist.getId());
+        c.setFirstName(cyclist.getFirstName());
+        c.setLastName(cyclist.getLastName());
+        c.setCountry(cyclist.getCountry());
+        c.setWeight(cyclist.getWeight());
+        c.setHeight(cyclist.getHeight());
+        c.setAge(Age.from(cyclist.getAge()));
+        if (cyclist.getUser() != null) {
+            c.setUser(User.from(cyclist.getUser()));
         }
+        cyclist.getSkillSetList().forEach(s -> c.getSkillSetList().add(SkillSet.from(s)));
+
         return c;
     }
 }

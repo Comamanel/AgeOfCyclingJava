@@ -1,6 +1,5 @@
 package aoc.bll.models;
 
-import aoc.dal.models.StretchDAO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +15,7 @@ public class Stretch {
     private double length;
     private double slope;
 
-    public static Stretch from(StretchDAO stretchDAO){
+    public static Stretch from(aoc.dal.models.Stretch stretchDAO){
         Stretch stretch = new Stretch();
 
         stretch.setId(stretchDAO.getId());

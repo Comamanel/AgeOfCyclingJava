@@ -3,6 +3,7 @@ package aoc.dal.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Getter
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @ToString
 @EqualsAndHashCode(of = { "label" })
 @Table(name = "surface")
-public class SurfaceDAO {
+public class Surface implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

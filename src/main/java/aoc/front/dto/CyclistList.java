@@ -36,7 +36,8 @@ public class CyclistList {
 
 
         if(cyclist.getSkillSetList() != null){
-            cyclist.getSkillSetList().stream()
+            cyclist.getSkillSetList()
+                    .stream()
                     .forEach(s -> cyclistList.getSkillSetList().add(CyclistListSkillSet.from(s)));
         }
 

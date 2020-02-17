@@ -1,7 +1,6 @@
 package aoc.dal.models;
 
 
-import aoc.bll.models.Skill;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,7 +15,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class SkillDAO implements Serializable {
+public abstract class Skill implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -26,9 +25,10 @@ public abstract class SkillDAO implements Serializable {
     private String label;
 
 
-    protected static SkillDAO from(Skill skill, SkillDAO skillDAO){
+    protected static Skill from(aoc.bll.models.Skill skill, Skill skillDAO){
         skillDAO.setId(skill.getId());
         skillDAO.setLabel(skill.getLabel());
         return skillDAO;
     }
+
 }

@@ -13,7 +13,7 @@ public interface UserService extends UserDetailsService {
     List<User> getAll();
     Optional<User> getById(Long id);
     Optional<User> getByUsername(String username);
-    boolean register(User user);
+    User register(User user);
     boolean delete(User user);
     boolean deleteByUsername(String username);
     boolean deleteByEmail(String email);

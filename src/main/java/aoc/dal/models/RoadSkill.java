@@ -1,6 +1,5 @@
 package aoc.dal.models;
 
-import aoc.bll.models.Skill;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -13,10 +12,10 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Table(name = "road_skill")
-public class RoadSkillDAO extends SkillDAO {
+public class RoadSkill extends Skill {
 
-    public static RoadSkillDAO from(Skill skill){
-        RoadSkillDAO roadSkillDAO = new RoadSkillDAO();
-        return (RoadSkillDAO)from(skill, roadSkillDAO);
+    public static RoadSkill from(aoc.bll.models.Skill skill){
+        RoadSkill roadSkill = new RoadSkill();
+        return (RoadSkill)from(skill, roadSkill);
     }
 }

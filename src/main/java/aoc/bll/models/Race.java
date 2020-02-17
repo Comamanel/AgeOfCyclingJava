@@ -1,7 +1,6 @@
 package aoc.bll.models;
 
 
-import aoc.dal.models.RaceDAO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,14 +21,14 @@ public class Race {
         this.stretches = new ArrayList<>();
     }
 
-    public static Race from(RaceDAO raceDAO){
+    public static Race from(aoc.dal.models.Race r){
         Race race = new Race();
-        race.setId(raceDAO.getId());
-        race.setLength(raceDAO.getLength());
-        race.setName(raceDAO.getName());
-        race.setNbLaps(raceDAO.getNbLaps());
+        race.setId(r.getId());
+        race.setLength(r.getLength());
+        race.setName(r.getName());
+        race.setNbLaps(r.getNbLaps());
 
-        raceDAO.getSections().forEach(s -> race.getStretches().add(Stretch.from(s)));
+        r.getSections().forEach(s -> race.getStretches().add(Stretch.from(s)));
 
         return race;
     }

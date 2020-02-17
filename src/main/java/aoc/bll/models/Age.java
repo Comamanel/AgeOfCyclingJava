@@ -1,7 +1,6 @@
 package aoc.bll.models;
 
 
-import aoc.dal.models.AgeDAO;
 import lombok.*;
 
 @Getter
@@ -19,7 +18,7 @@ public class Age {
         days = 0;
     }
 
-    public static Age from(AgeDAO ageDAO){
+    public static Age from(aoc.dal.models.Age ageDAO){
         Age age = new Age();
         age.setDays(ageDAO.getDays());
         age.setMonth(ageDAO.getMonth());
