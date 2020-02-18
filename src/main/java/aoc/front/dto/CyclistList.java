@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CyclistList {
+    private Long id;
     private String firstName;
     private String lastName;
     private String country;
@@ -26,6 +27,7 @@ public class CyclistList {
 
     public static CyclistList from(Cyclist cyclist){
         CyclistList cyclistList = new CyclistList();
+        cyclistList.setId(cyclist.getId());
         cyclistList.setFirstName(cyclist.getFirstName());
         cyclistList.setLastName(cyclist.getLastName());
         cyclistList.setCountry(cyclist.getCountry());

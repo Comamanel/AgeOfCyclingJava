@@ -44,7 +44,6 @@ public class AuthController {
     @PostMapping(value="/register")
     public ResponseEntity<User> register(@RequestBody RegisterForm registerForm){
 
-        //TODO: mettre le rôle à 0
         User u = new User();
         u.setEmail(registerForm.getEmail());
         u.setPassword(passwordEncoder.encode(registerForm.getPassword()));
