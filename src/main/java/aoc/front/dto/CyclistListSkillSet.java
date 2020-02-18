@@ -10,7 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CyclistListSkillSet {
     private CyclistListSkill skill;
-    private Integer value;
+    private Double value;
 
     public static CyclistListSkillSet from(SkillSet skillSet){
         CyclistListSkillSet clss = new CyclistListSkillSet();

@@ -25,7 +25,7 @@ public class SkillSet implements Serializable {
     @ManyToOne(targetEntity = Skill.class)
     private Skill skill;
 
-    private Integer value;
+    private Double value;
 
     public static SkillSet from(aoc.bll.models.SkillSet skillSet){
         SkillSet ssdao = new SkillSet();

@@ -14,7 +14,7 @@ import lombok.Setter;
 public class SkillSet {
 //    private Cyclist cyclist;
     private Skill skill;
-    private Integer value;
+    private Double value;
 
     public static SkillSet from(aoc.dal.models.SkillSet skillSet){
         SkillSet ss = new SkillSet();
