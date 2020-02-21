@@ -16,7 +16,7 @@ import java.util.List;
 @EqualsAndHashCode(of={ "id", "username", "email" })
 @ToString
 @Table(name="aoc_user")
-public class User extends UserDetails implements Serializable{
+public class User implements Serializable, UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -42,26 +42,28 @@ public class User extends UserDetails implements Serializable{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        List<Role> roles = new ArrayList<>();
+        roles.add(this.role);
+        return roles;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

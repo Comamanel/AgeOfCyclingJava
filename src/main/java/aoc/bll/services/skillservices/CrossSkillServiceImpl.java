@@ -19,32 +19,32 @@ public class CrossSkillServiceImpl implements CrossSkillService {
     }
 
     @Override
-    public Optional<aoc.bll.models.CrossSkill> findById(Long id) {
+    public Optional<CrossSkill> findById(Long id) {
         throw new NotImplementedException();
     }
 
     @Override
-    public Optional<aoc.bll.models.CrossSkill> findByLabel(String label) {
+    public Optional<CrossSkill> findByLabel(String label) {
         throw new NotImplementedException();
     }
 
     @Override
-    public List<aoc.bll.models.CrossSkill> findAll() {
+    public List<CrossSkill> findAll() {
         throw new NotImplementedException();
     }
 
     @Override
-    public aoc.bll.models.CrossSkill save(aoc.bll.models.CrossSkill skill) {
-        return aoc.bll.models.CrossSkill.from(this.crossSkillRepository.save(CrossSkill.from(skill)));
+    public CrossSkill save(CrossSkill skill) {
+        return this.crossSkillRepository.save(skill);
     }
 
     @Override
-    public aoc.bll.models.CrossSkill update(Long id, aoc.bll.models.CrossSkill skill) {
+    public CrossSkill update(Long id, CrossSkill skill) {
         throw new NotImplementedException();
     }
 
     @Override
-    public void remove(aoc.bll.models.CrossSkill skill) {
+    public void remove(CrossSkill skill) {
         throw new NotImplementedException();
     }
 

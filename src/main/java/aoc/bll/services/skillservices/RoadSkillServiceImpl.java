@@ -19,32 +19,32 @@ public class RoadSkillServiceImpl implements RoadSkillService {
     }
 
     @Override
-    public Optional<aoc.bll.models.RoadSkill> findById(Long id) {
+    public Optional<RoadSkill> findById(Long id) {
         throw new NotImplementedException();
     }
 
     @Override
-    public Optional<aoc.bll.models.RoadSkill> findByLabel(String label) {
+    public Optional<RoadSkill> findByLabel(String label) {
         throw new NotImplementedException();
     }
 
     @Override
-    public List<aoc.bll.models.RoadSkill> findAll() {
+    public List<RoadSkill> findAll() {
         throw new NotImplementedException();
     }
 
     @Override
-    public aoc.bll.models.RoadSkill save(aoc.bll.models.RoadSkill skill) {
-        return aoc.bll.models.RoadSkill.from(this.roadSkillRepository.save(RoadSkill.from(skill)));
+    public RoadSkill save(RoadSkill skill) {
+        return this.roadSkillRepository.save(skill);
     }
 
     @Override
-    public aoc.bll.models.RoadSkill update(Long id, aoc.bll.models.RoadSkill skill) {
+    public RoadSkill update(Long id, RoadSkill skill) {
         throw new NotImplementedException();
     }
 
     @Override
-    public void remove(aoc.bll.models.RoadSkill skill) {
+    public void remove(RoadSkill skill) {
         throw new NotImplementedException();
     }
 

@@ -1,5 +1,6 @@
 package aoc.front.dto;
 
+import aoc.dal.models.Age;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

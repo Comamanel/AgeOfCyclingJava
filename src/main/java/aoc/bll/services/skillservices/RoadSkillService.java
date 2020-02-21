@@ -1,5 +1,6 @@
 package aoc.bll.services.skillservices;
 
+import aoc.dal.models.RoadSkill;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

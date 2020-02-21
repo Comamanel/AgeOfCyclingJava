@@ -1,6 +1,7 @@
 package aoc.front.controllers;
 
 import aoc.bll.services.skillservices.RoadSkillService;
+import aoc.dal.models.RoadSkill;
 import aoc.front.dto.RoadSkillForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

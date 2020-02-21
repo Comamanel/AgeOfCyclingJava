@@ -1,5 +1,6 @@
 package aoc.front.dto;
 
+import aoc.dal.models.Cyclist;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,7 +39,6 @@ public class CyclistList {
 
         if(cyclist.getSkillSetList() != null){
             cyclist.getSkillSetList()
-                    .stream()
                     .forEach(s -> cyclistList.getSkillSetList().add(CyclistListSkillSet.from(s)));
         }
 

@@ -38,13 +38,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Optional<User> getByUsername(String username) {
-        return this.userRepository.getByUsername(username).map(User::from);
+        return this.userRepository.getByUsername(username);
     }
 
 
     @Override
     public User register(User user) {
-        return this.userRepository.save(user)));
+        return this.userRepository.save(user);
     }
 
     @Override
@@ -64,6 +64,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return (UserDetails) userRepository.getByUsername(s).orElseThrow(new UsernameNotFoundException("Username " + s + " not found.")));
+        return userRepository.getByUsername(s).orElse(null);
     }
 }

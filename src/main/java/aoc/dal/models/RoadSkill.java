@@ -14,8 +14,4 @@ import javax.persistence.Table;
 @Table(name = "road_skill")
 public class RoadSkill extends Skill {
 
-    public static RoadSkill from(aoc.bll.models.Skill skill){
-        RoadSkill roadSkill = new RoadSkill();
-        return (RoadSkill)from(skill, roadSkill);
-    }
 }

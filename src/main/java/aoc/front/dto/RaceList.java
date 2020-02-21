@@ -1,6 +1,7 @@
 package aoc.front.dto;
 
 
+import aoc.dal.models.Race;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,7 +29,7 @@ public class RaceList {
         rl.setLength(race.getLength());
         rl.setNbLaps(race.getNbLaps());
 
-        race.getStretches().forEach(s ->
+        race.getSections().forEach(s ->
                 rl.getSections().add(RaceListSection.from(s))
         );
         return rl;

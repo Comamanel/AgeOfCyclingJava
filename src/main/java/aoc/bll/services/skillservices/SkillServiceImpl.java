@@ -1,5 +1,6 @@
 package aoc.bll.services.skillservices;
 
+import aoc.dal.models.Skill;
 import aoc.dal.repositories.CrossSkillRepository;
 import aoc.dal.repositories.RoadSkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,8 @@ public class SkillServiceImpl implements SkillService {
     @Override
     public List<Skill> findAll() {
         List<Skill> skills = new ArrayList<>();
-        this.crossSkillRepository.findAll().forEach(cs -> skills.add(CrossSkill.from(cs)));
-        this.roadSkillRepository.findAll().forEach(rs -> skills.add(RoadSkill.from(rs)));
+        this.crossSkillRepository.findAll().forEach(skills::add);
+        this.roadSkillRepository.findAll().forEach(skills::add);
         return skills;
     }
 
