@@ -14,8 +14,4 @@ import javax.persistence.Table;
 @Table(name = "cross_skill")
 public class CrossSkill extends Skill {
 
-    public static CrossSkill from(aoc.bll.models.Skill skill){
-        CrossSkill crossSkill = new CrossSkill();
-        return (CrossSkill)from(skill, crossSkill);
-    }
 }

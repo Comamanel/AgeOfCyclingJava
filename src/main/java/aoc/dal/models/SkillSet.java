@@ -27,18 +27,4 @@ public class SkillSet implements Serializable {
 
     private Double value;
 
-    public static SkillSet from(aoc.bll.models.SkillSet skillSet){
-        SkillSet ssdao = new SkillSet();
-        aoc.bll.models.Skill s = skillSet.getSkill();
-        if(s instanceof aoc.bll.models.CrossSkill){
-            ssdao.setSkill(CrossSkill.from(skillSet.getSkill()));
-        }
-        else{
-            ssdao.setSkill(RoadSkill.from(skillSet.getSkill()));
-        }
-
-        ssdao.setValue(skillSet.getValue());
-
-        return ssdao;
-    }
 }

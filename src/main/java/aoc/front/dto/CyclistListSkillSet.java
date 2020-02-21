@@ -1,6 +1,6 @@
 package aoc.front.dto;
 
-import aoc.bll.models.SkillSet;
+import aoc.dal.models.SkillSet;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

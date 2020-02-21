@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Entity
 @Getter
@@ -43,17 +42,5 @@ public class Cyclist implements Serializable {
         skillSetList = new ArrayList<>();
     }
 
-    public static Cyclist from(aoc.bll.models.Cyclist cyclist){
-        Cyclist cdao = new Cyclist();
-        cdao.setAge(Age.from(cyclist.getAge()));
-        cdao.setCountry(cyclist.getCountry());
-        cdao.setFirstName(cyclist.getFirstName());
-        cdao.setLastName(cyclist.getLastName());
-        cdao.setWeight(cyclist.getWeight());
-        cdao.setHeight(cyclist.getHeight());
-        cdao.setId(cyclist.getId());
-        cdao.getSkillSetList().addAll(cyclist.getSkillSetList().stream().map(SkillSet::from).collect(Collectors.toList()));
 
-        return cdao;
-    }
 }

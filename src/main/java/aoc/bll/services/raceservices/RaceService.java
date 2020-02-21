@@ -1,6 +1,6 @@
 package aoc.bll.services.raceservices;
 
-import aoc.bll.models.Race;
+import aoc.dal.models.Race;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

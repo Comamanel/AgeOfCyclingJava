@@ -1,6 +1,7 @@
 package aoc.dal.models;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode
 @NoArgsConstructor
 @Table(name = "role_users")
-public class Role implements Serializable {
+public class Role implements Serializable, GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="role_id")
@@ -25,11 +26,9 @@ public class Role implements Serializable {
     @OneToMany(targetEntity = User.class, mappedBy = "role")
     private List<User> users;
 
-    public static Role from(aoc.bll.models.Role role){
-        Role rdao = new Role();
-        rdao.setId(role.getId());
-        rdao.setLabel(role.getLabel());
 
-        return rdao;
+    @Override
+    public String getAuthority() {
+        return label;
     }
 }

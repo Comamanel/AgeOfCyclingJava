@@ -1,10 +1,10 @@
 package aoc.front.controllers;
 
-import aoc.bll.models.Role;
-import aoc.bll.models.User;
 import aoc.bll.services.securityservices.RoleService;
 import aoc.bll.services.securityservices.UserService;
 import aoc.config.JwtTokenProvider;
+import aoc.dal.models.Role;
+import aoc.dal.models.User;
 import aoc.front.dto.auth.LoginForm;
 import aoc.front.dto.auth.RegisterForm;
 import org.springframework.beans.factory.annotation.Autowired;

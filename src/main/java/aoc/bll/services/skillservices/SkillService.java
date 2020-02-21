@@ -1,6 +1,6 @@
 package aoc.bll.services.skillservices;
 
-import aoc.bll.models.Skill;
+import aoc.dal.models.Skill;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
