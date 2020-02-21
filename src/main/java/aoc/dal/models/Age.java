@@ -1,5 +1,6 @@
 package aoc.dal.models;
 
+import aoc.front.dto.CyclistListAge;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -29,6 +30,15 @@ public class Age implements Serializable {
 
 
     public static Age from(aoc.bll.models.Age age){
+        Age adao = new Age();
+        adao.setDays(age.getDays());
+        adao.setMonth(age.getMonth());
+        adao.setYears(age.getYears());
+
+        return adao;
+    }
+
+    public static Age from(CyclistListAge age) {
         Age adao = new Age();
         adao.setDays(age.getDays());
         adao.setMonth(age.getMonth());

@@ -9,7 +9,7 @@ import java.util.Optional;
 @Service
 public interface SkillService {
     Optional<Skill> findById(Long id);
-    Optional<Skill> findByLabel(String label);
+    Optional<? extends aoc.dal.models.Skill> findByLabel(String label);
     List<Skill> findAll();
     Skill save(Skill skill);
     Skill update(Long id, Skill skill);

@@ -1,7 +1,11 @@
 package aoc.dal.models;
 
 
+import aoc.bll.services.skillservices.SkillService;
+import aoc.bll.services.skillservices.SkillServiceImpl;
+import aoc.front.dto.CyclistRegister;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -53,6 +57,22 @@ public class Cyclist implements Serializable {
         cdao.setHeight(cyclist.getHeight());
         cdao.setId(cyclist.getId());
         cdao.getSkillSetList().addAll(cyclist.getSkillSetList().stream().map(SkillSet::from).collect(Collectors.toList()));
+
+
+        return cdao;
+    }
+
+    public static Cyclist from(CyclistRegister cyclistRegister) {
+        Cyclist cdao = new Cyclist();
+        cdao.setAge(Age.from(cyclistRegister.getAge()));
+        cdao.setCountry(cyclistRegister.getCountry());
+        cdao.setFirstName(cyclistRegister.getFirstName());
+        cdao.setLastName(cyclistRegister.getLastName());
+        cdao.setWeight(cyclistRegister.getWeight());
+        cdao.setHeight(cyclistRegister.getHeight());
+        User user = new User();
+        user.setId(cyclistRegister.getUser());
+        cdao.setUser(user);
 
         return cdao;
     }

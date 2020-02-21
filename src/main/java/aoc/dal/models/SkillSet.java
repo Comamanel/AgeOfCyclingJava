@@ -13,6 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "skill_set")
+@IdClass(value = CompositionId.class)
 public class SkillSet implements Serializable {
 
     @JoinColumn(name = "cyclist_id")
@@ -20,7 +21,7 @@ public class SkillSet implements Serializable {
     @ManyToOne(targetEntity = Cyclist.class)
 //    @JsonIgnore
     private Cyclist cyclist;
-    @JoinColumn(name = "skill_id")
+
     @Id
     @ManyToOne(targetEntity = Skill.class)
     private Skill skill;

@@ -1,7 +1,7 @@
 package aoc.bll.services.cyclistservices;
 
 import aoc.bll.models.Cyclist;
-import aoc.bll.models.User;
+import aoc.front.dto.CyclistRegister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,4 +18,6 @@ public interface CyclistService {
     Cyclist update(Long id, Cyclist cyclist);
     void remove(Cyclist cyclist);
     void remove(Long id);
+
+    aoc.dal.models.Cyclist save(CyclistRegister cyclistRegister);
 }
