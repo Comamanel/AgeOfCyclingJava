@@ -1,7 +1,6 @@
 package aoc.front.dto;
 
 
-import aoc.bll.models.Race;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

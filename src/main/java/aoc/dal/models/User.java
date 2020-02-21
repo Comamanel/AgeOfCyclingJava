@@ -1,10 +1,13 @@
 package aoc.dal.models;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -13,7 +16,7 @@ import java.util.List;
 @EqualsAndHashCode(of={ "id", "username", "email" })
 @ToString
 @Table(name="aoc_user")
-public class User implements Serializable {
+public class User extends UserDetails implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,14 +39,29 @@ public class User implements Serializable {
         this.cyclists = new ArrayList<>();
     }
 
-    public static User from(aoc.bll.models.User user){
-        User u = new User();
-        u.setUsername(user.getUsername());
-        u.setPassword(user.getPassword());
-        u.setEmail(user.getEmail());
-        u.setId(user.getId());
-        u.setRole(Role.from(user.getRole()));
 
-        return u;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
     }
 }

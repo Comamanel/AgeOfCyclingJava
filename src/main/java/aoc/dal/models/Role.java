@@ -25,11 +25,5 @@ public class Role implements Serializable {
     @OneToMany(targetEntity = User.class, mappedBy = "role")
     private List<User> users;
 
-    public static Role from(aoc.bll.models.Role role){
-        Role rdao = new Role();
-        rdao.setId(role.getId());
-        rdao.setLabel(role.getLabel());
 
-        return rdao;
-    }
 }

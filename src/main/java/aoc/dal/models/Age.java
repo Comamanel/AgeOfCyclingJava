@@ -26,14 +26,4 @@ public class Age implements Serializable {
     @Max(31)
     @Column(name = "age_days")
     private int days;
-
-
-    public static Age from(aoc.bll.models.Age age){
-        Age adao = new Age();
-        adao.setDays(age.getDays());
-        adao.setMonth(age.getMonth());
-        adao.setYears(age.getYears());
-
-        return adao;
-    }
 }

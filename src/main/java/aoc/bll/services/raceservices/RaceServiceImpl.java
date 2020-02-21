@@ -1,6 +1,6 @@
 package aoc.bll.services.raceservices;
 
-import aoc.bll.models.Race;
+import aoc.dal.models.Race;
 import aoc.dal.repositories.RaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,10 +31,7 @@ public class RaceServiceImpl implements RaceService {
 
     @Override
     public List<Race> findAll() {
-        List<Race> races = new ArrayList<>();
-
-        this.raceRepository.findAll().forEach(r -> races.add(Race.from(r)));
-        return races;
+        return (List<Race>) this.raceRepository.findAll();
     }
 
     @Override

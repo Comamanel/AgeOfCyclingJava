@@ -1,6 +1,5 @@
 package aoc.bll.services.cyclistservices;
 
-import aoc.bll.models.User;
 import aoc.dal.models.Cyclist;
 import aoc.dal.repositories.CyclistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,52 +21,43 @@ public class CyclistServiceImpl implements CyclistService {
     }
 
     @Override
-    public Optional<aoc.bll.models.Cyclist> findById(Long id) {
-        return this.cyclistRepository.findById(id).map(aoc.bll.models.Cyclist::from);
+    public Optional<Cyclist> findById(Long id) {
+        return this.cyclistRepository.findById(id);
     }
 
     @Override
-    public Optional<aoc.bll.models.Cyclist> findByLastName(String lastName) {
+    public Optional<Cyclist> findByLastName(String lastName) {
         throw new NotImplementedException();
     }
 
     @Override
-    public List<aoc.bll.models.Cyclist> findAllByUserId(Long userId) {
-        return this.cyclistRepository.findAllByUserId(userId)
-                .stream()
-                .map(aoc.bll.models.Cyclist::from)
-                .collect(Collectors.toList());
+    public List<Cyclist> findAllByUserId(Long userId) {
+        return this.cyclistRepository.findAllByUserId(userId);
     }
 
     @Override
-    public List<aoc.bll.models.Cyclist> findAllByUserUsername(String username) {
-        return this.cyclistRepository.findAllByUserUsername(username)
-                .stream()
-                .map(aoc.bll.models.Cyclist::from)
-                .collect(Collectors.toList());
+    public List<Cyclist> findAllByUserUsername(String username) {
+        return this.cyclistRepository.findAllByUserUsername(username);
     }
 
     @Override
-    public List<aoc.bll.models.Cyclist> findAll() {
-        List<aoc.bll.models.Cyclist> cyclists = new ArrayList<>();
-        this.cyclistRepository.findAll().forEach(c -> cyclists.add(aoc.bll.models.Cyclist.from(c)));
-
-        return cyclists;
+    public List<Cyclist> findAll() {
+        return (List<Cyclist>) this.cyclistRepository.findAll();
     }
 
     @Override
-    public aoc.bll.models.Cyclist save(aoc.bll.models.Cyclist cyclist) {
-        return aoc.bll.models.Cyclist.from(this.cyclistRepository.save(Cyclist.from(cyclist)));
+    public Cyclist save(Cyclist cyclist) {
+        return this.cyclistRepository.save(cyclist);
     }
 
     @Override
-    public aoc.bll.models.Cyclist update(Long id, aoc.bll.models.Cyclist cyclist) {
+    public Cyclist update(Long id, Cyclist cyclist) {
         cyclist.setId(id);
-        return aoc.bll.models.Cyclist.from(this.cyclistRepository.save(Cyclist.from(cyclist)));
+        return this.cyclistRepository.save(cyclist);
     }
 
     @Override
-    public void remove(aoc.bll.models.Cyclist cyclist) {
+    public void remove(Cyclist cyclist) {
         throw new NotImplementedException();
     }
 

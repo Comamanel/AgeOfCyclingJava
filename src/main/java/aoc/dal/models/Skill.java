@@ -25,10 +25,5 @@ public abstract class Skill implements Serializable {
     private String label;
 
 
-    protected static Skill from(aoc.bll.models.Skill skill, Skill skillDAO){
-        skillDAO.setId(skill.getId());
-        skillDAO.setLabel(skill.getLabel());
-        return skillDAO;
-    }
 
 }

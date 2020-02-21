@@ -1,11 +1,11 @@
 package aoc.bll.services.cyclistservices;
 
-import aoc.bll.models.Cyclist;
-import aoc.bll.models.User;
+import aoc.dal.models.Cyclist;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 
 @Service
 public interface CyclistService {

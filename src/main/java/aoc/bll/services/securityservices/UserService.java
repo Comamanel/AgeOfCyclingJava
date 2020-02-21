@@ -1,6 +1,6 @@
 package aoc.bll.services.securityservices;
 
-import aoc.bll.models.User;
+import aoc.dal.models.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 

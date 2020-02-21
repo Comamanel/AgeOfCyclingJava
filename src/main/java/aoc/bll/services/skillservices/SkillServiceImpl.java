@@ -1,8 +1,5 @@
 package aoc.bll.services.skillservices;
 
-import aoc.bll.models.CrossSkill;
-import aoc.bll.models.RoadSkill;
-import aoc.bll.models.Skill;
 import aoc.dal.repositories.CrossSkillRepository;
 import aoc.dal.repositories.RoadSkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
