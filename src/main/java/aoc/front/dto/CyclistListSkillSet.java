@@ -12,10 +12,8 @@ public class CyclistListSkillSet {
     private CyclistListSkill skill;
     private Double value;
 
-    public static CyclistListSkillSet from(SkillSet skillSet){
-        CyclistListSkillSet clss = new CyclistListSkillSet();
-        clss.setSkill(CyclistListSkill.from(skillSet.getSkill()));
-        clss.setValue(skillSet.getValue());
-        return clss;
+    public CyclistListSkillSet(SkillSet skillSet){
+        this.setSkill(new CyclistListSkill(skillSet.getSkill()));
+        this.setValue(skillSet.getValue());
     }
 }

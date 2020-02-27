@@ -26,7 +26,7 @@ public class CyclistController {
     public ResponseEntity<List<CyclistList>> getAll(){
         return ResponseEntity.ok(cyclistService.findAll()
                 .stream()
-                .map(CyclistList::from)
+                .map(CyclistList::new)
                 .collect(Collectors.toList()));
     }
 
@@ -34,7 +34,7 @@ public class CyclistController {
     public ResponseEntity<List<CyclistList>> getByUser(@PathVariable Long id){
         return ResponseEntity.ok(cyclistService.findAllByUserId(id)
                 .stream()
-                .map(CyclistList::from)
+                .map(CyclistList::new)
                 .collect(Collectors.toList()));
     }
 
@@ -42,7 +42,7 @@ public class CyclistController {
     public ResponseEntity<List<CyclistList>> getByUser(@RequestBody UserList userlist){
         return ResponseEntity.ok(cyclistService.findAllByUserUsername(userlist.getUsername())
                 .stream()
-                .map(CyclistList::from)
+                .map(CyclistList::new)
                 .collect(Collectors.toList()));
     }
 }

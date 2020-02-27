@@ -24,6 +24,6 @@ public class CrossSkillController {
     public ResponseEntity<CrossSkillForm> add(@RequestBody CrossSkillForm crossSkillForm){
         CrossSkill crossSkill = new CrossSkill();
         crossSkill.setLabel(crossSkillForm.getLabel());
-        return ResponseEntity.ok(CrossSkillForm.from(this.crossSkillService.save(crossSkill)));
+        return ResponseEntity.ok(new CrossSkillForm(this.crossSkillService.save(crossSkill)));
     }
 }

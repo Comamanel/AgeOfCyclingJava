@@ -11,9 +11,7 @@ import lombok.Setter;
 public class RaceListSurface {
     private String label;
 
-    public static RaceListSurface from(Surface surface){
-        RaceListSurface rls = new RaceListSurface();
-        rls.setLabel(surface.getLabel());
-        return rls;
+    public RaceListSurface(Surface surface){
+        this.setLabel(surface.getLabel());
     }
 }

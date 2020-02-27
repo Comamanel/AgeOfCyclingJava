@@ -26,7 +26,7 @@ public class RaceController {
         return ResponseEntity.ok(
             this.raceService.findAll()
                 .stream()
-                .map(RaceList::from)
+                .map(RaceList::new)
                 .collect(Collectors.toList()));
     }
 }

@@ -25,23 +25,20 @@ public class CyclistList {
 
     private List<CyclistListSkillSet> skillSetList;
 
-    public static CyclistList from(Cyclist cyclist){
-        CyclistList cyclistList = new CyclistList();
-        cyclistList.setId(cyclist.getId());
-        cyclistList.setFirstName(cyclist.getFirstName());
-        cyclistList.setLastName(cyclist.getLastName());
-        cyclistList.setCountry(cyclist.getCountry());
-        cyclistList.setWeight(cyclist.getWeight());
-        cyclistList.setHeight(cyclist.getHeight());
-        cyclistList.setAge(CyclistListAge.from(cyclist.getAge()));
-        cyclistList.skillSetList = new ArrayList<>();
+    public CyclistList(Cyclist cyclist){
+        this.setId(cyclist.getId());
+        this.setFirstName(cyclist.getFirstName());
+        this.setLastName(cyclist.getLastName());
+        this.setCountry(cyclist.getCountry());
+        this.setWeight(cyclist.getWeight());
+        this.setHeight(cyclist.getHeight());
+        this.setAge(new CyclistListAge(cyclist.getAge()));
+        this.skillSetList = new ArrayList<>();
 
 
         if(cyclist.getSkillSetList() != null){
             cyclist.getSkillSetList()
-                    .forEach(s -> cyclistList.getSkillSetList().add(CyclistListSkillSet.from(s)));
+                    .forEach(s -> this.getSkillSetList().add(new CyclistListSkillSet(s)));
         }
-
-        return cyclistList;
     }
 }

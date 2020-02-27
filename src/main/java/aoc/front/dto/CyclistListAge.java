@@ -15,11 +15,9 @@ public class CyclistListAge {
     private int month;
     private int days;
 
-    public static CyclistListAge from(Age age){
-        CyclistListAge clAge = new CyclistListAge();
-        clAge.setDays(age.getDays());
-        clAge.setMonth(age.getMonth());
-        clAge.setYears(age.getYears());
-        return clAge;
+    public CyclistListAge(Age age){
+        this.setDays(age.getDays());
+        this.setMonth(age.getMonth());
+        this.setYears(age.getYears());
     }
 }

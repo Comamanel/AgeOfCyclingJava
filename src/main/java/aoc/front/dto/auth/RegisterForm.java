@@ -18,13 +18,9 @@ public class RegisterForm {
     @Column(nullable = false)
     private String email;
 
-    public static RegisterForm from(User user){
-        RegisterForm uf = new RegisterForm();
-
-        uf.setEmail(user.getEmail());
-        uf.setUsername(user.getUsername());
-        uf.setPassword(user.getPassword());
-
-        return uf;
+    public RegisterForm(User user){
+        this.setEmail(user.getEmail());
+        this.setUsername(user.getUsername());
+        this.setPassword(user.getPassword());
     }
 }

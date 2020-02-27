@@ -13,9 +13,7 @@ import lombok.Setter;
 public class SkillList {
     private String label;
 
-    public static SkillList from(Skill skill){
-        SkillList sl = new SkillList();
-        sl.setLabel(skill.getLabel());
-        return sl;
+    public SkillList(Skill skill){
+        this.setLabel(skill.getLabel());
     }
 }

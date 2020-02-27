@@ -23,15 +23,13 @@ public class RaceList {
         this.sections = new ArrayList<>();
     }
 
-    public static RaceList from(Race race){
-        RaceList rl = new RaceList();
-        rl.setName(race.getName());
-        rl.setLength(race.getLength());
-        rl.setNbLaps(race.getNbLaps());
+    public RaceList(Race race){
+        this.setName(race.getName());
+        this.setLength(race.getLength());
+        this.setNbLaps(race.getNbLaps());
 
         race.getSections().forEach(s ->
-                rl.getSections().add(RaceListSection.from(s))
+                this.getSections().add(new RaceListSection(s))
         );
-        return rl;
     }
 }

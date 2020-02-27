@@ -11,9 +11,7 @@ import lombok.Setter;
 public class CyclistListSkill {
     private String label;
 
-    public static CyclistListSkill from(Skill skill){
-        CyclistListSkill cls = new CyclistListSkill();
-        cls.setLabel(skill.getLabel());
-        return cls;
+    public CyclistListSkill(Skill skill){
+        this.setLabel(skill.getLabel());
     }
 }

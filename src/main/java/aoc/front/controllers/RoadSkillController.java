@@ -24,6 +24,6 @@ public class RoadSkillController {
     public ResponseEntity<RoadSkillForm> add(@RequestBody RoadSkillForm roadSkillForm){
         RoadSkill roadskill = new RoadSkill();
         roadskill.setLabel(roadSkillForm.getLabel());
-        return ResponseEntity.ok(RoadSkillForm.from(this.roadSkillService.save(roadskill)));
+        return ResponseEntity.ok(new RoadSkillForm(this.roadSkillService.save(roadskill)));
     }
 }

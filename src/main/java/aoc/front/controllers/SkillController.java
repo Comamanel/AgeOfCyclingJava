@@ -22,7 +22,7 @@ public class SkillController {
     @GetMapping(value={"/", "/list"})
     public ResponseEntity<List<SkillList>> getAll(){
         List<SkillList> skillList = new ArrayList<>();
-        this.skillService.findAll().forEach(s -> skillList.add(SkillList.from(s)));
+        this.skillService.findAll().forEach(s -> skillList.add(new SkillList(s)));
         return ResponseEntity.ok(skillList);
     }
 

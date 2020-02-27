@@ -15,12 +15,10 @@ public class RaceListSection {
     private double length;
     private double slope;
 
-    public static RaceListSection from(Stretch stretch){
-        RaceListSection rls = new RaceListSection();
-        rls.setSurface(RaceListSurface.from(stretch.getSurface()));
-        rls.setDifficulty(stretch.getDifficulty());
-        rls.setLength(stretch.getLength());
-        rls.setSlope(stretch.getSlope());
-        return rls;
+    public RaceListSection(Stretch stretch){
+        this.setSurface(new RaceListSurface(stretch.getSurface()));
+        this.setDifficulty(stretch.getDifficulty());
+        this.setLength(stretch.getLength());
+        this.setSlope(stretch.getSlope());
     }
 }
