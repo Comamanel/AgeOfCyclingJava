@@ -5,15 +5,13 @@ import aoc.bll.services.skillservices.SkillService;
 import aoc.bll.services.skillservices.SkillSetService;
 import aoc.dal.models.Cyclist;
 import aoc.dal.models.SkillSet;
+import aoc.front.dto.CyclistForm;
 import aoc.front.dto.CyclistList;
-import aoc.front.dto.CyclistRegister;
 import aoc.front.dto.UserList;
-import com.sun.xml.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -56,11 +54,11 @@ public class CyclistController {
                 .collect(Collectors.toList()));
     }
 
-    @PostMapping(value = {"/register"})
-    public ResponseEntity<Cyclist> register(@RequestBody CyclistRegister cyclistRegister) {
-        Cyclist cyclist = cyclistService.save(cyclistRegister);
+    @PostMapping(value = {"/add"})
+    public ResponseEntity<Cyclist> add(@RequestBody CyclistForm cyclistForm) {
+        Cyclist cyclist = cyclistService.save(cyclistForm);
         // TODO: 21-02-20 Problème avec l'id compiste du skillset
-        List<SkillSet> skillSets = cyclistRegister.getSkillSetList()
+        List<SkillSet> skillSets = cyclistForm.getSkillSetList()
                 .stream()
                 .map(cyclistListSkillSet -> {
                     return new SkillSet(cyclist,

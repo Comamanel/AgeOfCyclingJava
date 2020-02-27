@@ -1,11 +1,8 @@
 package aoc.dal.models;
 
 
-import aoc.bll.services.skillservices.SkillService;
-import aoc.bll.services.skillservices.SkillServiceImpl;
-import aoc.front.dto.CyclistRegister;
+import aoc.front.dto.CyclistForm;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -62,7 +59,7 @@ public class Cyclist implements Serializable {
         return cdao;
     }
 
-    public static Cyclist from(CyclistRegister cyclistRegister) {
+    public static Cyclist from(CyclistForm cyclistRegister) {
         Cyclist cdao = new Cyclist();
         cdao.setAge(Age.from(cyclistRegister.getAge()));
         cdao.setCountry(cyclistRegister.getCountry());
