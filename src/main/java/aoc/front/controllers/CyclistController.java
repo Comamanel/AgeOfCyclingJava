@@ -1,11 +1,15 @@
 package aoc.front.controllers;
 
 import aoc.bll.services.cyclistservices.CyclistService;
+import aoc.bll.services.skillservices.SkillService;
+import aoc.bll.services.skillservices.SkillSetService;
+import aoc.dal.models.Cyclist;
+import aoc.dal.models.SkillSet;
+import aoc.front.dto.CyclistForm;
 import aoc.front.dto.CyclistList;
 import aoc.front.dto.UserList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,10 +20,14 @@ import java.util.stream.Collectors;
 @RequestMapping(value={"/api/cyclist"})
 public class CyclistController {
     private CyclistService cyclistService;
+    private SkillService skillService;
+    private SkillSetService skillSetService;
 
     @Autowired
-    public CyclistController(CyclistService cyclistService){
+    public CyclistController(CyclistService cyclistService, SkillService skillService, SkillSetService skillSetService){
         this.cyclistService = cyclistService;
+        this.skillService = skillService;
+        this.skillSetService = skillSetService;
     }
 
     @GetMapping(value={"/", "/list"})
@@ -44,5 +52,23 @@ public class CyclistController {
                 .stream()
                 .map(CyclistList::new)
                 .collect(Collectors.toList()));
+    }
+
+    @PostMapping(value = {"/add"})
+    public ResponseEntity<Cyclist> add(@RequestBody CyclistForm cyclistForm) {
+        Cyclist cyclist = cyclistService.save(cyclistForm);
+        // TODO: 21-02-20 Problème avec l'id compiste du skillset
+        List<SkillSet> skillSets = cyclistForm.getSkillSetList()
+                .stream()
+                .map(cyclistListSkillSet -> {
+                    return new SkillSet(cyclist,
+                            skillService.findByLabel(cyclistListSkillSet.getSkill().getLabel()).orElse(null),
+                            cyclistListSkillSet.getValue());
+                })
+                .collect(Collectors.toList());
+
+        // TODO: 21-02-20 il dit que j'essaie de mettre un long dans un cyclist
+        skillSets.forEach(skillSet -> skillSetService.save(skillSet));
+        return ResponseEntity.ok(cyclist);
     }
 }

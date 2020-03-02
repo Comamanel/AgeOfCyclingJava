@@ -29,8 +29,12 @@ public class SkillServiceImpl implements SkillService {
     }
 
     @Override
-    public Optional<Skill> findByLabel(String label) {
-        throw new NotImplementedException();
+    public Optional<? extends aoc.dal.models.Skill> findByLabel(String label) {
+        Optional<aoc.dal.models.RoadSkill> roadSkill = roadSkillRepository.findByLabel(label);
+        if (!roadSkill.isPresent())
+            return crossSkillRepository.findByLabel(label);
+        else
+            return roadSkill;
     }
 
     @Override

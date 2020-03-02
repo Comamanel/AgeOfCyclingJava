@@ -1,6 +1,7 @@
 package aoc.dal.models;
 
 
+import aoc.front.dto.CyclistForm;
 import lombok.*;
 
 import javax.persistence.*;
@@ -43,4 +44,21 @@ public class Cyclist implements Serializable {
     }
 
 
+
+        return cdao;
+    }
+
+    public Cyclist(CyclistForm cyclistRegister) {
+        this.setAge(Age(cyclistRegister.getAge()));
+        this.setCountry(cyclistRegister.getCountry());
+        this.setFirstName(cyclistRegister.getFirstName());
+        this.setLastName(cyclistRegister.getLastName());
+        this.setWeight(cyclistRegister.getWeight());
+        this.setHeight(cyclistRegister.getHeight());
+        User user = new User();
+        user.setId(cyclistRegister.getUser());
+        this.setUser(user);
+
+        return cdao;
+    }
 }

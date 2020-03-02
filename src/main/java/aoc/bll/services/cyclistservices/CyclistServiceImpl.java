@@ -2,6 +2,7 @@ package aoc.bll.services.cyclistservices;
 
 import aoc.dal.models.Cyclist;
 import aoc.dal.repositories.CyclistRepository;
+import aoc.front.dto.CyclistForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -64,5 +65,10 @@ public class CyclistServiceImpl implements CyclistService {
     @Override
     public void remove(Long id) {
 
+    }
+
+    @Override
+    public Cyclist save(CyclistForm cyclistRegister) {
+        return cyclistRepository.save(Cyclist.from(cyclistRegister));
     }
 }

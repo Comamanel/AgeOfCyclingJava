@@ -1,5 +1,6 @@
 package aoc.dal.models;
 
+import aoc.front.dto.CyclistListAge;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -26,4 +27,11 @@ public class Age implements Serializable {
     @Max(31)
     @Column(name = "age_days")
     private int days;
+
+
+    public Age(CyclistListAge age) {
+        this.setDays(age.getDays());
+        this.setMonth(age.getMonth());
+        this.setYears(age.getYears());
+    }
 }
