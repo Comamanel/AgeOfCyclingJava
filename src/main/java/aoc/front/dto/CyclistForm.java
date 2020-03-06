@@ -1,12 +1,7 @@
 package aoc.front.dto;
 
-import aoc.bll.models.Age;
-import aoc.bll.models.Cyclist;
-import aoc.bll.models.SkillSet;
-import aoc.bll.models.User;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @ToString
@@ -21,7 +16,7 @@ public class CyclistForm {
     private Double weight;
     private Double height;
 
-    private Long user;
+    private String user;
 
     private CyclistListAge age;
 

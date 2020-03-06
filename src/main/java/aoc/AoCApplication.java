@@ -41,9 +41,9 @@ public class AoCApplication {
         Role role = this.roleRepository.findByLabel("ROLE_ADMIN").orElse(null);
 
         User user = new User();
-        user.setEmail("florent.piette9@gmail.com");
-        user.setUsername("fpiette");
-        user.setPassword(passwordEncoder.encode("Test1234="));
+        user.setEmail("a@a.a");
+        user.setUsername("a");
+        user.setPassword(passwordEncoder.encode("a"));
         user.setRole(role);
 
 
@@ -58,7 +58,7 @@ public class AoCApplication {
     }
 
     private void addCyclist(){
-        User u = this.userRepository.getByUsername("fpiette").orElse(null);
+        User u = this.userRepository.getByUsername("a").orElse(null);
         Cyclist cyclist = this.cyclistRepository.findByLastName("Piette").orElse(null);
         if(cyclist != null) {
             cyclist.setUser(u);

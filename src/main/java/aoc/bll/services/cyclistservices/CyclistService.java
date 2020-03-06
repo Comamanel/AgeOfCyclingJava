@@ -19,5 +19,5 @@ public interface CyclistService {
     void remove(Cyclist cyclist);
     void remove(Long id);
 
-    Cyclist save(CyclistForm cyclistRegister);
+    Cyclist save(CyclistForm cyclistRegister) throws Exception;
 }

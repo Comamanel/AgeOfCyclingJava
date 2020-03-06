@@ -3,6 +3,8 @@ package aoc.dal.models;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 import java.io.Serializable;
 
 @Entity
@@ -26,6 +28,8 @@ public class SkillSet implements Serializable {
     @ManyToOne(targetEntity = Skill.class)
     private Skill skill;
 
+    @DecimalMin("0.00")
+    @DecimalMax("99.99")
     private Double value;
 
 }

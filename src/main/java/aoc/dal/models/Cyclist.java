@@ -45,20 +45,21 @@ public class Cyclist implements Serializable {
 
 
 
-        return cdao;
-    }
-
     public Cyclist(CyclistForm cyclistRegister) {
-        this.setAge(Age(cyclistRegister.getAge()));
+        this.setAge(new Age(cyclistRegister.getAge()));
         this.setCountry(cyclistRegister.getCountry());
         this.setFirstName(cyclistRegister.getFirstName());
         this.setLastName(cyclistRegister.getLastName());
         this.setWeight(cyclistRegister.getWeight());
         this.setHeight(cyclistRegister.getHeight());
-        User user = new User();
-        user.setId(cyclistRegister.getUser());
+    }
+    public Cyclist(CyclistForm cyclistRegister, User user) {
+        this.setAge(new Age(cyclistRegister.getAge()));
+        this.setCountry(cyclistRegister.getCountry());
+        this.setFirstName(cyclistRegister.getFirstName());
+        this.setLastName(cyclistRegister.getLastName());
+        this.setWeight(cyclistRegister.getWeight());
+        this.setHeight(cyclistRegister.getHeight());
         this.setUser(user);
-
-        return cdao;
     }
 }

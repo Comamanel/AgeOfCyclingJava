@@ -55,7 +55,7 @@ public class CyclistController {
     }
 
     @PostMapping(value = {"/add"})
-    public ResponseEntity<Cyclist> add(@RequestBody CyclistForm cyclistForm) {
+    public ResponseEntity<CyclistList> add(@RequestBody CyclistForm cyclistForm) throws Exception {
         Cyclist cyclist = cyclistService.save(cyclistForm);
         // TODO: 21-02-20 Problème avec l'id compiste du skillset
         List<SkillSet> skillSets = cyclistForm.getSkillSetList()
@@ -69,6 +69,6 @@ public class CyclistController {
 
         // TODO: 21-02-20 il dit que j'essaie de mettre un long dans un cyclist
         skillSets.forEach(skillSet -> skillSetService.save(skillSet));
-        return ResponseEntity.ok(cyclist);
+        return ResponseEntity.ok(new CyclistList(cyclist));
     }
 }

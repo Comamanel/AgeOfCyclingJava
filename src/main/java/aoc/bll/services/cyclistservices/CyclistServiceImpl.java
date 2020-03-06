@@ -2,6 +2,7 @@ package aoc.bll.services.cyclistservices;
 
 import aoc.dal.models.Cyclist;
 import aoc.dal.repositories.CyclistRepository;
+import aoc.dal.repositories.UserRepository;
 import aoc.front.dto.CyclistForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +16,12 @@ import java.util.stream.Collectors;
 @Service
 public class CyclistServiceImpl implements CyclistService {
     private CyclistRepository cyclistRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    public CyclistServiceImpl(CyclistRepository cyclistRepository) {
+    public CyclistServiceImpl(CyclistRepository cyclistRepository, UserRepository userRepository) {
         this.cyclistRepository = cyclistRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -68,7 +71,10 @@ public class CyclistServiceImpl implements CyclistService {
     }
 
     @Override
-    public Cyclist save(CyclistForm cyclistRegister) {
-        return cyclistRepository.save(Cyclist.from(cyclistRegister));
+    public Cyclist save(CyclistForm cyclistRegister) throws Exception {
+        userRepository.getByUsername(cyclistRegister.getUser());
+        /*Cyclist cyclist = new Cyclist(cyclistRegister,
+                        userRepository.getByUsername(cyclistRegister.getUser()).orElseThrow(Exception::new));*/
+        return cyclistRepository.save(new Cyclist(cyclistRegister, userRepository.getByUsername(cyclistRegister.getUser()).orElseThrow(Exception::new)));
     }
 }

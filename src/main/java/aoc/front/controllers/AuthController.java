@@ -5,6 +5,7 @@ import aoc.bll.services.securityservices.UserService;
 import aoc.config.JwtTokenProvider;
 import aoc.dal.models.Role;
 import aoc.dal.models.User;
+import aoc.front.dto.UserList;
 import aoc.front.dto.auth.LoginForm;
 import aoc.front.dto.auth.RegisterForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,5 +73,14 @@ public class AuthController {
         catch (AuthenticationException e){
             throw new BadCredentialsException("Invalid username/password supplied");
         }
+    }
+
+    @PostMapping(value="/refresh")
+    public ResponseEntity<UserList> refresh(@RequestBody String username){
+        UserList user = new UserList();
+        if(username != null){
+            user = new UserList(this.userService.getByUsername(username).orElse(new User()));
+        }
+        return ResponseEntity.ok(user);
     }
 }
