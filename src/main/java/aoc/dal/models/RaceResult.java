@@ -28,5 +28,6 @@ public class RaceResult implements Serializable {
     @ManyToMany(targetEntity = Cyclist.class)
     private Set<Cyclist> cyclists;
 
-    private int year;
+    @ManyToOne(targetEntity = CustomDate.class)
+    private CustomDate date;
 }

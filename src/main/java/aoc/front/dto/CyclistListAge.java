@@ -12,12 +12,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CyclistListAge {
     private int years;
-    private int month;
-    private int days;
+    private double days;
 
     public CyclistListAge(Age age){
         this.setDays(age.getDays());
-        this.setMonth(age.getMonth());
         this.setYears(age.getYears());
     }
 }

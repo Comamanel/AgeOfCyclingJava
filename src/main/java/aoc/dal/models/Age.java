@@ -10,8 +10,6 @@ import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 @Embeddable
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Age implements Serializable {
@@ -20,18 +18,29 @@ public class Age implements Serializable {
     @Max(150)
     private int years;
     @Min(0)
-    @Max(12)
-    @Column(name = "age_month")
-    private int month;
-    @Min(0)
-    @Max(31)
+    @Max(365)
     @Column(name = "age_days")
-    private int days;
+    private double days;
 
 
     public Age(CyclistListAge age) {
         this.setDays(age.getDays());
-        this.setMonth(age.getMonth());
         this.setYears(age.getYears());
+    }
+
+    public int getYears() {
+        return years;
+    }
+
+    public void setYears(int years) {
+        this.years = years;
+    }
+
+    public double getDays() {
+        return days;
+    }
+
+    public void setDays(double days) {
+        this.days = days;
     }
 }
