@@ -39,6 +39,7 @@ public class Cyclist implements Serializable {
     @ManyToOne(targetEntity = User.class)
     private User user;
 
+
     public Cyclist(){
         skillSetList = new ArrayList<>();
     }

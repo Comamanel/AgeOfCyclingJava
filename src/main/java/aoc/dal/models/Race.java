@@ -22,6 +22,12 @@ public class Race implements Serializable {
     private Float length;
     private Integer nbLaps;
 
+    @JoinTable(name="race_inscriptions",
+            joinColumns = @JoinColumn(name ="race_id"),
+            inverseJoinColumns = @JoinColumn(name="cyclist_id"))
+    @ManyToMany(targetEntity = Cyclist.class)
+    private List<Cyclist> inscriptions;
+
     @OneToMany(targetEntity = Stretch.class, mappedBy = "race")
     private List<Stretch> sections;
 

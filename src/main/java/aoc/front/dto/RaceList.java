@@ -24,12 +24,14 @@ public class RaceList {
     }
 
     public RaceList(Race race){
+        this();
         this.setName(race.getName());
         this.setLength(race.getLength());
         this.setNbLaps(race.getNbLaps());
 
-        race.getSections().forEach(s ->
-                this.getSections().add(new RaceListSection(s))
-        );
+        if(race.getSections() != null)
+            race.getSections().forEach(s ->
+                this.sections.add(new RaceListSection(s))
+            );
     }
 }
